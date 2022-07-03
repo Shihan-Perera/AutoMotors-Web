@@ -1,0 +1,243 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+<header>
+  <title>AUTOMOTORS-Results</title>
+  <section class="banner2 banner-margin-zero">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 ">
+          <h1>Prediction Results</h1>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <ol class="breadcrumb">
+            <li>
+              <a href="{% url 'index' %}">Home</a>
+            </li>
+            <li>
+              <a href="{% url 'predict' %}">Prediction</a>
+            </li>
+            <li class="active">
+              Results
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+<body>
+
+</body>
+<div class="main-content-area clearfix">
+  <section class="section-padding prediction ">
+     <!-- Main Container -->
+     <div class="container">
+        <!-- Row -->
+        <div class="row">
+           <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+              <!-- end post-padding -->
+              <div class="post-ad-form postdetails">
+                 <div class="heading-panel">
+                    <h3 class="main-title text-left">
+                       AUTOMOTORS Prediction Results
+                    </h3>
+                 </div>
+                 <p class="lead">Here is the AUTOMOTORS predicted Market Value for Youer Vehicle Under the Provided Details...</p>
+                 {% if error  %}
+                  <center><label style="color:red">{{error}}</label></center>
+                 {% endif %}
+                 {{ form.media }}
+                 <br><br>
+                 <div class="row">
+                    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <label>Model Name</label>
+                      </div>
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <p class="pred_rst">{{model}}</p>
+                      </div>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <label>Vehicle Type</label>
+                      </div>
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                        {% if type == 1 %}
+                           <p class="pred_rst">Truck</p>
+                        {% elif  type == 2 %}
+                        <p class="pred_rst">SUV</p>
+                        {% elif  type == 3 %}
+                        <p class="pred_rst">Sedan</p>
+                        {% elif  type == 4 %}
+                        <p class="pred_rst">Pickup</p>
+                        {% elif  type == 5 %}
+                        <p class="pred_rst">Wagon</p>
+                        {% elif  type == 6 %}
+                        <p class="pred_rst">Coupe</p>
+                        {% elif  type == 7 %}
+                        <p class="pred_rst">Hatchback</p>
+                        {% elif  type == 8 %}
+                        <p class="pred_rst">Van</p>
+                        {% elif  type == 9 %}
+                        <p class="pred_rst">Mini-Van</p>
+                        {% endif %}
+                      </div>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <label>Vehicle Brand</label>
+                      </div>
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                        {% if manuf == 1 %}
+                           <p class="pred_rst">Chevrolet</p>
+                        {% elif  manuf == 2 %}
+                        <p class="pred_rst">Ford</p>
+                        {% elif  manuf == 3 %}
+                        <p class="pred_rst">Nissan</p>
+                        {% elif  manuf == 4 %}
+                        <p class="pred_rst">Jeep</p>
+                        {% elif  manuf == 5 %}
+                        <p class="pred_rst">Toyota</p>
+                        {% elif  manuf == 6 %}
+                        <p class="pred_rst">Honda</p>
+                        {% elif  manuf == 7 %}
+                        <p class="pred_rst">Audi</p>
+                        {% elif  manuf == 8 %}
+                        <p class="pred_rst">GMC</p>
+                        {% elif  manuf == 9 %}
+                        <p class="pred_rst">RAM</p>
+                        {% elif  manuf == 10 %}
+                        <p class="pred_rst">Dodge</p>
+                        {% endif %}
+                      </div>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <label>Model Year</label>
+                      </div>
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <p class="pred_rst">{{year}}</p>
+                      </div>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <label>Vehicle Condition</label>
+                      </div>
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                        {% if condition == 1 %}
+                           <p class="pred_rst">Brand New</p>
+                        {% elif  condition == 2 %}
+                        <p class="pred_rst">Like New</p>
+                        {% elif  condition == 3 %}
+                        <p class="pred_rst">Excellent</p>
+                        {% elif  condition == 4 %}
+                        <p class="pred_rst">Good</p>
+                        {% elif  condition == 5 %}
+                        <p class="pred_rst">Fair</p>
+                        {% elif  condition == 6 %}
+                        <p class="pred_rst">Salvage</p>
+                        {% endif %}
+                      </div>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <label>Vehicle Engine</label>
+                      </div>
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                        {% if cylinders == 1 %}
+                           <p class="pred_rst">3 cylinders</p>
+                        {% elif  cylinders == 2 %}
+                        <p class="pred_rst">4 cylinders</p>
+                        {% elif  cylinders == 3 %}
+                        <p class="pred_rst">5 cylinders</p>
+                        {% elif  cylinders == 4 %}
+                        <p class="pred_rst">6 cylinders</p>
+                        {% elif  cylinders == 5 %}
+                        <p class="pred_rst">8 cylinders</p>
+                        {% elif  cylinders == 6 %}
+                        <p class="pred_rst">10 cylinders</p>
+                        {% elif  cylinders == 7 %}
+                        <p class="pred_rst">12 cylinders</p>
+                        {% elif  cylinders == 8 %}
+                        <p class="pred_rst">Other</p>
+                        {% endif %}
+                      </div>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <label>Fuel</label>
+                      </div>
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                        {% if fuel == 1 %}
+                        <p class="pred_rst">Petrol</p>
+                        {% elif  fuel == 2 %}
+                        <p class="pred_rst">Diesel</p>
+                        {% elif  fuel == 3 %}
+                        <p class="pred_rst">Hybrid</p>
+                        {% elif  fuel == 4 %}
+                        <p class="pred_rst">Electric</p>
+                        {% elif  fuel == 5 %}
+                        <p class="pred_rst">Other</p>
+                        {% endif %}
+                      </div>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <label>Vehicle Milage</label>
+                      </div>
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <p class="pred_rst">{{odometer}}</p>
+                      </div>
+                    </div>
+                 </div>
+                 <!-- end row -->
+                 <div class="row">
+                    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <label>Vehicle Transmission Type</label>
+                      </div>
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                        {% if transmission == 1 %}
+                        <p class="pred_rst">Automatic</p>
+                        {% elif  transmission == 2 %}
+                        <p class="pred_rst">Manual</p>
+                        {% elif  transmission == 3 %}
+                        <p class="pred_rst">Other</p>
+                        {% endif %}
+                      </div>
+                    </div>
+                 </div>
+                 <hr><hr><hr>
+                 <div class="row">
+                    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <h3 class="pred_rst_price">AUTOMOTORS Prdicted Value</h3>
+                      </div>
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <h3 class="pred_rst_price">$&nbsp {{predict_value}}</h3>
+                      </div>
+                    </div>
+                 </div>
+           </div>
+        </div>
+     </div>
+  </section>
+</div>
+
+{% endblock %}

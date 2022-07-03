@@ -1,0 +1,39 @@
+{% load static %}
+
+<!-- footer Section -->
+
+<footer id="footer" class="bdr-0">
+  <div class="primary-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <div class="about-us-footer">
+            <h5 class="view-title-style">About Us</h5>
+            <p>
+              AUTOMOTORS is a vehicle sales web application based on machine learning technology.
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 text-center footer-img-gap">
+          <a href="{% url 'index' %}" class="footer-logo"><img src="{% static 'assets/images/logo.png' %}" alt="lets drive" /></a>
+        </div>
+        <div class="col-xs-12 col-sm-4 text-right contact-info-footer">
+          <h5 class="view-title-style">Contact Us</h5>
+          <address>
+            PO Box: 67, New City Watta, Weedagama<span class="line-break"></span>
+            Address: 67, New City Watta, Weedagama<span class="line-break"></span>
+            Bandaragama <span class="line-break"></span>
+            Sri Lanka <span class="line-break"></span>
+            Email:<a href="#"> automotors@gmail.com</a><span class="line-break"></span>
+            Phone: <a href="tel:94761535970">+94 76 153 59 70</a><span class="line-break"></span>
+          </address>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom text-center">
+    <div class="container">
+      <span>AUTOMOTORS © {% now "Y" %} - All Rights Reserved</span>
+    </div>
+  </div>
+</footer>
